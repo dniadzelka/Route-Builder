@@ -1,13 +1,23 @@
-  /* Always set the map height explicitly to define the size of the div
+/* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-  
-  #mapContainer {
-      height: 100%;
-  }
-  
-  html,
-  body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-  }
+
+#mapContainer {
+    width: 60%;
+    float: left;
+}
+
+#actionsContainer {
+    width: 30%;
+    float: right;
+}
+
+.main-containers {
+    height: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}

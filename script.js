@@ -9,3 +9,16 @@
          zoom: 12
      });
  }
+
+ function placeMarker(location) {
+     var marker = new google.maps.Marker({
+         position: location,
+         map: map
+     });
+ }
+
+ function addPoint() {
+     google.maps.event.addListenerOnce(map, 'click', function(event) {
+         placeMarker(event.latLng);
+     });
+ }
