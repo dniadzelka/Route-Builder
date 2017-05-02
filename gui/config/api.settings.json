@@ -1,0 +1,17 @@
+{
+	"api": [
+		{
+			"hostname": "{{local}}",
+			"port": "{{local}}",
+			"protocol": "{{local}}",
+			"prefix": "{{local}}",
+			"endpoints": [
+				{
+					"name": "test",
+					"endpoint": "test",
+					"method": "test"
+				}
+			]
+		}
+	]
+}

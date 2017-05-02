@@ -1,0 +1,30 @@
+.app-loading {
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: $primary;
+	transition: z-index 0.5s step-end, opacity 0.5s ease-in-out;
+}
+
+atm-project:empty + .app-loading {
+	opacity: 1;
+	z-index: 1000;
+}
+atm-project + .app-loading h1 {
+	display: none;
+}
+
+atm-project:empty + .app-loading h1 {
+	top: 50%;
+	width: 100%;
+	color: white;
+	display: block;
+	font-size: 3rem;
+	position: absolute;
+	text-align: center;
+	transform: translate(0, -50%);
+}

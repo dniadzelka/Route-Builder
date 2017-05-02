@@ -1,0 +1,14 @@
+{
+	"hostname": {
+		"local": "127.0.0.1"
+	},
+	"port": {
+		"local": "8081"
+	},
+	"protocol": {
+		"local": "http"
+	},
+	"prefix": {
+		"local": ""
+	}
+}

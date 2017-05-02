@@ -1,0 +1,20 @@
+<md-toolbar class="navigation-bar mat-elevation-z6" color="primary">
+	<!--ATM vision-->
+	<a routerLink="/map" class="logo"></a>
+	<a md-button class="nav-button" routerLink="/atms" routerLinkActive="active"><i class="material-icons left">credit_card</i> ATMs </a>
+	<a md-button class="nav-button" routerLink="/map" routerLinkActive="active"><i class="material-icons left">map</i> Map </a>
+	<a md-button class="nav-button" routerLink="/delivery" routerLinkActive="active"><i class="material-icons left">local_shipping</i> Delivery </a>
+	<a md-button class="nav-button" routerLink="/rules" routerLinkActive="active"><i class="material-icons left">build</i> Rules </a>
+
+	<span class="fill-space"></span>
+
+	<a md-button class="nav-button" (click)="toggleLeftNavigation(sidenav)"><i class="material-icons left">menu</i></a>
+</md-toolbar>
+<md-sidenav-container>
+	<md-sidenav #sidenav mode="side" opened="{{sideNavOpened}}" class="left-navigation" [style.height.px]="leftContentHeight" (window:resize)="onResize()">
+		<router-outlet name="left"></router-outlet>
+	</md-sidenav>
+	<div #mainContent class="main-content" [style.height.px]="mainContentHeight" (window:resize)="onResize()">
+		<router-outlet></router-outlet>
+	</div>
+</md-sidenav-container>

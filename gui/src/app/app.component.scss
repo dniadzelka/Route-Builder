@@ -1,0 +1,59 @@
+@import '../scss/vars/_global';
+
+:host {
+	md-toolbar {
+		padding-right: 0;
+
+		.nav-button.active {
+			background-color: hsla(0, 0%, 100%, .1);
+		}
+	}
+
+	.logo {
+		height: $atm-top-navigation-height;
+		width: 200px;
+		background-size: 600px $atm-top-navigation-height;
+	}
+
+	.nav-button {
+		height: $atm-top-navigation-height;
+		line-height: $atm-top-navigation-height;
+	}
+
+	.left-navigation {
+		width: 20%;
+		min-width: 300px;
+		padding: 10px 0px 10px 10px;
+	}
+
+	.main-content {
+		padding: 10px;
+	}
+
+	.fill-space {
+		flex: 1 1 auto;
+	}
+
+	/deep/ {
+		.mat-sidenav-content {
+			overflow: hidden;
+		}
+
+		.mat-sidenav-container, .mat-sidenav {
+			background-color: transparent;
+		}
+
+		.navigation-bar {
+			height: $atm-top-navigation-height;
+		}
+
+		.mat-toolbar, .mat-toolbar-row {
+			min-height: $atm-top-navigation-height;
+			height: $atm-top-navigation-height;
+		}
+
+		.mat-sidenav-focus-trap > .cdk-focus-trap-content {
+			overflow-y: inherit;
+		}
+	}
+}

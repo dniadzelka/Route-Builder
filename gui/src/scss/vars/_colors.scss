@@ -1,0 +1,40 @@
+@import '~@angular/material/theming';
+@import "google-material-colors";
+@include mat-core();
+
+$app-primary-palette: $mat-grey;
+$app-primary-default: 900;
+$app-primary-lighter: 800;
+$app-primary-darker: 1000;
+
+$app-accent-palette: $mat-teal;
+$app-accent-default: 400;
+$app-accent-lighter: 500;
+$app-accent-darker: 600;
+
+$app-warn-palette: $mat-red;
+$app-warn-default: 300;
+$app-warn-lighter: 400;
+$app-warn-darker: 500;
+
+$app-primary: mat-palette($app-primary-palette, $app-primary-default, $app-primary-lighter, $app-primary-darker);
+$app-accent: mat-palette($app-accent-palette, $app-accent-default, $app-accent-lighter, $app-accent-darker);
+$app-warn: mat-palette($app-warn-palette, $app-warn-default, $app-warn-lighter, $app-warn-darker);
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme);
+
+$primary: map-get($app-primary-palette, $app-primary-default);
+$accent: map-get($app-accent-palette, $app-accent-default);
+$warn: map-get($app-warn-palette, $app-warn-default);
+
+$primary-lighter: map-get($app-primary-palette, $app-primary-lighter);
+$accent-lighter: map-get($app-accent-palette, $app-accent-lighter);
+$warn-lighter: map-get($app-warn-palette, $app-warn-lighter);
+
+$primary-darker: map-get($app-primary-palette, $app-primary-darker);
+$accent-darker: map-get($app-accent-palette, $app-accent-darker);
+$warn-darker: map-get($app-warn-palette, $app-warn-darker);
+
+$secondary-color: $mdc-blue-600;
+
+$disabled-color: rgba(0, 0, 0, 0.12);
