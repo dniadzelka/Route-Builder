@@ -5,7 +5,8 @@ import {RouterModule} from "@angular/router";
 import {SharedModule} from "./shared/shared.module";
 import {AppComponent} from "./app.component";
 import {routes} from "./app.routes";
-import {ReferencesModule} from "./pages/map/map.module";
+import {MapModule} from "./pages/map/map.module";
+import {AtmsModule} from "./pages/atms/atms.module";
 import {HttpClient} from "./shared/api/http-client.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -16,7 +17,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 		BrowserAnimationsModule,
 		RouterModule.forRoot(routes, {useHash: true}),
 		SharedModule.forRoot(),
-		ReferencesModule,
+		MapModule,
+		AtmsModule,
 	],
 	declarations: [
 		AppComponent

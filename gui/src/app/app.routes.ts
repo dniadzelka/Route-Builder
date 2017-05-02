@@ -4,12 +4,7 @@ import {MapRoutes} from './pages/map/map.routes';
 export const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'schedules',
-		pathMatch: 'full'
-	},
-	{
-		path: 'main',
-		redirectTo: 'schedules',
+		redirectTo: 'map',
 		pathMatch: 'full'
 	},
 	...MapRoutes

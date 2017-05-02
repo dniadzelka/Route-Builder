@@ -1,4 +1,4 @@
-import {NgModule, ApplicationRef} from "@angular/core";
+import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {MapComponent} from "./map.component";
 import {SharedModule} from "../../shared/shared.module";
@@ -27,5 +27,5 @@ import { BrowserModule } from "@angular/platform-browser";
 	]
 })
 
-export class ReferencesModule {
+export class MapModule {
 }
