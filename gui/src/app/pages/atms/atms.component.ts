@@ -8,6 +8,33 @@ import {Component} from "@angular/core";
 })
 
 export class AtmsComponent {
+	public data: Array<any> = [
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		},
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		},
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		},
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		},
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		},
+		{
+			name: 'ATM #1',
+			address: 'Majakouskaga 43'
+		}
+	];
+
 	constructor() {
 	}
 }

@@ -18,7 +18,9 @@ import {
 	MdMenuModule,
 	MdSnackBarModule
 } from "@angular/material";
+
 import {NgModule, ModuleWithProviders} from "@angular/core";
+import {IterateObjectPipe} from "./pipes/iterate-object.pipe";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -45,7 +47,7 @@ import {NgModule, ModuleWithProviders} from "@angular/core";
 		MdMenuModule,
 		MdSnackBarModule
 	],
-	declarations: [],
+	declarations: [IterateObjectPipe],
 	exports: [
 		CommonModule,
 		FormsModule,
@@ -64,7 +66,8 @@ import {NgModule, ModuleWithProviders} from "@angular/core";
 		MdToolbarModule,
 		MdCardModule,
 		MdMenuModule,
-		MdSnackBarModule
+		MdSnackBarModule,
+		IterateObjectPipe
 	]
 })
 

@@ -1,7 +1,21 @@
 <md-card class="global-md-card">
 	<md-card-content class="global-md-card-content full-height-wrapper">
 		<div class="full-height">
-			12345
+			<table>
+				<tr>
+					<th>
+						ATM
+					</th>
+					<th>
+						Address
+					</th>
+				</tr>
+				<tr *ngFor="let row of data">
+					<td *ngFor="let column of row | iterateObject">
+						{{column}}
+					</td>
+				</tr>
+			</table>
 		</div>
 	</md-card-content>
 </md-card>
