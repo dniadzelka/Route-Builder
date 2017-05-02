@@ -1,3 +1,29 @@
-:host {
+@import "../../../scss/vars/global";
 
+:host {
+	.table {
+		width: 100%;
+		border-collapse: collapse;
+
+		th, td {
+			border: $border;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		tr {
+			height: 40px;
+		}
+
+		&.striped {
+			tr:nth-child(even) {
+				background-color: $background-color;
+			}
+		}
+
+		tr:not(.table-header):hover {
+			background-color: $hover-color;
+			cursor: pointer;
+		}
+	}
 }

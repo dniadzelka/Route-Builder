@@ -1,9 +1,6 @@
 $atm-top-navigation-height: 60px;
 
-$primary-border-color: #e0e0e0;
-$primary-border: 1px solid $primary-border-color;
-
-$secondary-border-color: #d0d0d0;
-$secondary-border: 1px solid $secondary-border-color;
-
-$item-hover-color: #ddd;
+$border-color: rgba(225, 225, 225, 0.9);
+$background-color: rgba(225, 225, 225, 0.3);
+$hover-color: rgba(225, 225, 225, 0.7);
+$border: 1px solid $border-color;
