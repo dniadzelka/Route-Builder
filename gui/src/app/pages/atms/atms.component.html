@@ -10,8 +10,8 @@
 						Address
 					</th>
 				</tr>
-				<tr *ngFor="let row of data">
-					<td *ngFor="let column of row | iterateObject">
+				<tr *ngFor="let row of data" (click)="goToATMReport(row.id)">
+					<td *ngFor="let column of row | iterateObject : iterateKeys">
 						{{column}}
 					</td>
 				</tr>

@@ -9,6 +9,7 @@ import {MapModule} from "./pages/map/map.module";
 import {AtmsModule} from "./pages/atms/atms.module";
 import {HttpClient} from "./shared/api/http-client.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AtmReportModule} from "./pages/atms/atm-report/atm-report.module";
 
 @NgModule({
 	imports: [
@@ -19,6 +20,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 		SharedModule.forRoot(),
 		MapModule,
 		AtmsModule,
+		AtmReportModule
 	],
 	declarations: [
 		AppComponent
