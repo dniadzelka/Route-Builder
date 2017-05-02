@@ -65,20 +65,6 @@
 		pointer-events: none;
 	}
 
-	.mat-dialog-container {
-		background-color: #fafafa;
-		position: relative;
-
-		.mat-dialog-title {
-			text-align: center;
-		}
-
-		.mat-dialog-actions {
-			float: right;
-			margin-top: 25px;
-		}
-	}
-
 	.mat-input-container.ng-invalid.ng-touched:not(.mat-input-disabled) {
 		.mat-input-wrapper {
 			.mat-input-placeholder {

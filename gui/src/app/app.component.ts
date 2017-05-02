@@ -1,4 +1,5 @@
 import {Component, AfterContentInit} from '@angular/core';
+import {Router, NavigationEnd} from "@angular/router";
 
 @Component({
 	selector: 'atm-project',
@@ -13,9 +14,11 @@ export class AppComponent implements AfterContentInit {
 	public leftContentHeight: number = 0;
 	public mainContentHeight: number = 0;
 	public sideNavOpened: boolean = true;
+	public sideNavAvailable: boolean = true;
 
-	constructor() {
+	constructor(public router: Router) {
 		this.initSideNav();
+		this.initRouterSubscription();
 	}
 
 	ngAfterContentInit(): void {
@@ -31,11 +34,30 @@ export class AppComponent implements AfterContentInit {
 		sideNav.toggle();
 	}
 
-	initSideNav(): void {
-		if ($(window).width() <= this.iPadWidthBreakPoint) {
-			this.sideNavOpened = false;
-		} else {
+	initRouterSubscription(): void {
+		// NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized
+		this.router.events.subscribe((event) => {
+			if (event instanceof NavigationEnd) {
+				switch(event.url) {
+					case '/atms':
+						this.sideNavOpened = false;
+						this.sideNavAvailable = false;
+						return;
+				}
+			}
+
 			this.sideNavOpened = true;
+			this.sideNavAvailable = true;
+		});
+	}
+
+	initSideNav(): void {
+		if (this.sideNavAvailable) {
+			if ($(window).width() <= this.iPadWidthBreakPoint) {
+				this.sideNavOpened = false;
+			} else {
+				this.sideNavOpened = true;
+			}
 		}
 	}
 }
