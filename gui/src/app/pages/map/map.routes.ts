@@ -1,20 +1,20 @@
 import {Routes} from "@angular/router";
 import {MapComponent} from "./map.component";
+import {MapLeftPanelComponent} from "./left-panel/map-left-panel.component";
 
 export const MapRoutes: Routes = <Routes>[
 	{
 		path: 'map',
-		component: MapComponent
-		// children: [
-		// 	{
-		// 		path: '',
-		// 		component: right
-		// 	},
-		// 	{
-		// 		path: '',
-		// 		component: left,
-		// 		outlet: 'left'
-		// 	}
-		// ]
+		children: [
+			{
+				path: '',
+				component: MapComponent
+			},
+			{
+				path: '',
+				component: MapLeftPanelComponent,
+				outlet: 'left'
+			}
+		]
 	}
 ];

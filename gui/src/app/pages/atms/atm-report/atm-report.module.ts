@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import {AtmsRoutes} from "../atms.routes";
 import {AtmReportComponent} from "./atm-report.component";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {AtmReportLeftPanelComponent} from "./left-panel/atm-report-left-panel.component";
 
 @NgModule({
 	imports: [
@@ -14,11 +15,13 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 		RouterModule.forChild(AtmsRoutes)
 	],
 	declarations: [
-		AtmReportComponent
+		AtmReportComponent,
+		AtmReportLeftPanelComponent
 	],
 	entryComponents: [],
 	exports: [
-		AtmReportComponent
+		AtmReportComponent,
+		AtmReportLeftPanelComponent
 	]
 })
 

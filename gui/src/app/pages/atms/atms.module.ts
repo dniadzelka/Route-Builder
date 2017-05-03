@@ -4,6 +4,7 @@ import {AtmsComponent} from "./atms.component";
 import {SharedModule} from "../../shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {AtmsRoutes} from "./atms.routes";
+import {AtmsLeftPanelComponent} from "./left-panel/atms-left-panel.component";
 
 @NgModule({
 	imports: [
@@ -12,11 +13,13 @@ import {AtmsRoutes} from "./atms.routes";
 		RouterModule.forChild(AtmsRoutes)
 	],
 	declarations: [
-		AtmsComponent
+		AtmsComponent,
+		AtmsLeftPanelComponent
 	],
 	entryComponents: [],
 	exports: [
-		AtmsComponent
+		AtmsComponent,
+		AtmsLeftPanelComponent
 	]
 })
 

@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import {MapRoutes} from "./map.routes";
 import {AgmCoreModule} from "angular2-google-maps/core";
 import { BrowserModule } from "@angular/platform-browser";
+import {MapLeftPanelComponent} from "./left-panel/map-left-panel.component";
 
 @NgModule({
 	imports: [
@@ -19,11 +20,13 @@ import { BrowserModule } from "@angular/platform-browser";
 		})
 	],
 	declarations: [
-		MapComponent
+		MapComponent,
+		MapLeftPanelComponent
 	],
 	entryComponents: [],
 	exports: [
-		MapComponent
+		MapComponent,
+		MapLeftPanelComponent
 	]
 })
 
