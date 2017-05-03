@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnDestroy} from "@angular/core";
 import {MapBindingsService} from "./map-binfings.service";
 import {MdSnackBar} from "@angular/material";
 import {PopUpService} from "../../shared/services/pop-up-service";
@@ -19,7 +19,7 @@ interface marker {
 	providers: [MapBindingsService, MdSnackBar, PopUpService, MapService, RestService]
 })
 
-export class MapComponent {
+export class MapComponent implements OnDestroy {
 	zoom: number = 12;
 	lat: number = 53.904540;
 	lng: number = 27.561524;
@@ -29,7 +29,6 @@ export class MapComponent {
 	loading: boolean = false;
 
 	constructor(private mdSnackBar: MdSnackBar, private popUpService: PopUpService, private mapService: MapService, private restService: RestService) {
-		//TODO: unsubscribe later
 		this.leftPanelStateSubscription = MapBindingsService.leftStateChanged().subscribe((state) => {
 			if (state.addATM) {
 				this.popUpService.openDialog('ATTENTION', 'At first you need pick map to locate ATM.', 'OK').subscribe((data) => {
@@ -89,5 +88,9 @@ export class MapComponent {
 
 			this.handleAddATM = false;
 		}
+	}
+
+	ngOnDestroy() {
+		this.leftPanelStateSubscription.unsubscribe();
 	}
 }

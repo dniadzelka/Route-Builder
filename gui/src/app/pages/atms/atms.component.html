@@ -1,5 +1,6 @@
 <md-card class="global-md-card">
-	<md-card-content class="global-md-card-content full-height-wrapper">
+	<md-spinner *ngIf="loading"></md-spinner>
+	<md-card-content class="global-md-card-content full-height-wrapper" [ngClass]="{'loading-bg': loading}">
 		<div class="full-height">
 			<table class="table striped">
 				<tr class="table-header">
@@ -10,7 +11,7 @@
 						Address
 					</th>
 				</tr>
-				<tr *ngFor="let row of data" (click)="goToATMReport(row.id)">
+				<tr *ngFor="let row of atmTable" (click)="goToATMReport(row.id)">
 					<td *ngFor="let column of row | iterateObject : iterateKeys">
 						{{column}}
 					</td>
