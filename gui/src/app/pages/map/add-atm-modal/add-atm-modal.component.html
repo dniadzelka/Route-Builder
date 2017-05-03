@@ -1,0 +1,26 @@
+<div>
+	<md-spinner *ngIf="loading" class="sm"></md-spinner>
+	<div [ngClass]="{'loading-bg': loading}">
+		<h1 md-dialog-title class="modal-title">
+			ADD ATM
+		</h1>
+		<div md-dialog-content>
+			<md-input-container>
+				<input mdInput type="text" placeholder="Name" required [(ngModel)]="atm.name">
+			</md-input-container>
+			<md-input-container>
+				<input mdInput type="text" placeholder="Addresa" required [(ngModel)]="atm.address">
+			</md-input-container>
+		</div>
+		<div md-dialog-actions class="clearfix">
+			<div class="pull-right">
+				<button type="button" md-button (click)="dialogRef.close()" class="cancel-btn">CANCEL</button>
+				<button class="btn" type="button" color="accent" md-raised-button
+				        (click)="addATM()"
+				        [disabled]="!atm.name || !atm.address">
+					ADD
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

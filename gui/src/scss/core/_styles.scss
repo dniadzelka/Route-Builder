@@ -16,6 +16,15 @@
 		float: right;
 	}
 
+	.modal-title {
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.cancel-btn {
+		margin-right: 5px;
+	}
+
 	.card-title {
 		font-size: 3.5rem;
 		padding-bottom: 20px;
@@ -71,6 +80,10 @@
 	.loading-bg {
 		opacity: 0.4;
 		pointer-events: none;
+	}
+
+	.mat-dialog-actions {
+		display: block;
 	}
 
 	.mat-input-container.ng-invalid.ng-touched:not(.mat-input-disabled) {

@@ -7,7 +7,7 @@ import {ConfirmationModalComponent} from "../components/confirmation-modal/confi
 export class PopUpService {
 	public dialogWidth: string = '400px';
 	public dialogPosition: DialogPosition = {
-		top: '5%',
+		top: '10%',
 		bottom: '',
 		left: '',
 		right: ''
@@ -23,7 +23,7 @@ export class PopUpService {
 		}
 	}
 
-	public getDialogConfig(title: string, message: string, buttonText: string, isWarning: boolean): MdDialogConfig {
+	public getDialogConfig(title: string, message: string, buttonText: string, isWarning?: boolean): MdDialogConfig {
 		return <MdDialogConfig>{
 			width: this.dialogWidth,
 			position: this.dialogPosition,
@@ -36,13 +36,7 @@ export class PopUpService {
 		};
 	}
 
-	public openModal(component, data?): Observable<boolean> {
-		const config: MdDialogConfig = this.getModalConfig(data);
-		let dialogRef = this.dialog.open(component, config);
-		return dialogRef.afterClosed();
-	}
-
-	public openDialog(title: string, message: string, buttonText: string, isWarning: boolean): Observable<boolean> {
+	public openDialog(title: string, message: string, buttonText: string, isWarning?: boolean): Observable<boolean> {
 		const config: MdDialogConfig = this.getDialogConfig(title, message, buttonText, isWarning);
 		let dialogRef = this.dialog.open(ConfirmationModalComponent, config);
 		return dialogRef.afterClosed();

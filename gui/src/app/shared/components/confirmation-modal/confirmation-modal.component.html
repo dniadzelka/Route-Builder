@@ -1,7 +1,8 @@
-<h1 md-dialog-title>{{data.title}}</h1>
+<h1 md-dialog-title class="modal-title">{{data.title}}</h1>
 <div md-dialog-content>{{data.message}}</div>
-<div md-dialog-actions>
+<div md-dialog-actions class="clearfix">
 	<div class="pull-right">
+		<button md-button (click)="dialogRef.close()" class="cancel-btn">CANCEL</button>
 		<button *ngIf="data.warning" color="warn" class="btn" md-raised-button (click)="dialogRef.close(true)">{{data.buttonText}}</button>
 		<button *ngIf="!data.warning" color="accent" class="btn" md-raised-button (click)="dialogRef.close(true)">{{data.buttonText}}</button>
 	</div>
