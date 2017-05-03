@@ -3,19 +3,20 @@ import {MapBindingsService} from "./map-binfings.service";
 import {MdSnackBar} from "@angular/material";
 import {PopUpService} from "../../shared/services/pop-up-service";
 import {MapService} from "./map.service";
+import {RestService} from "../../shared/api/rest.service";
 
 interface marker {
+	name: string,
+	address: string,
 	lat: number;
 	lng: number;
-	label?: string;
-	draggable?: boolean;
 }
 
 @Component({
 	selector: 'map',
 	templateUrl: './map.component.html',
 	styleUrls: ['./map.component.scss'],
-	providers: [MapBindingsService, MdSnackBar, PopUpService, MapService]
+	providers: [MapBindingsService, MdSnackBar, PopUpService, MapService, RestService]
 })
 
 export class MapComponent {
@@ -24,28 +25,10 @@ export class MapComponent {
 	lng: number = 27.561524;
 	leftPanelStateSubscription;
 	handleAddATM: boolean = false;
-	markers: marker[] = [
-		{
-			lat: 51.673858,
-			lng: 7.815982,
-			label: 'A',
-			draggable: false
-		},
-		{
-			lat: 51.373858,
-			lng: 7.215982,
-			label: 'B',
-			draggable: false
-		},
-		{
-			lat: 51.723858,
-			lng: 7.895982,
-			label: 'C',
-			draggable: false
-		}
-	];
+	markers: marker[] = [];
 
-	constructor(private mdSnackBar: MdSnackBar, private popUpService: PopUpService, private mapService: MapService) {
+	constructor(private mdSnackBar: MdSnackBar, private popUpService: PopUpService, private mapService: MapService, private restService: RestService) {
+		//TODO: unsubscribe later
 		this.leftPanelStateSubscription = MapBindingsService.leftStateChanged().subscribe((state) => {
 			if (state.addATM) {
 				this.popUpService.openDialog('ATTENTION', 'At first you need pick map to locate ATM.', 'OK').subscribe((data) => {
@@ -55,11 +38,16 @@ export class MapComponent {
 				});
 			}
 		});
+
+		restService.getATMs().subscribe((data) => {
+			//TODO: add spinner
+			this.markers = data;
+			console.log(this.markers);
+		});
 	}
 
 	clickedMarker(label: any, index: number) {
-		console.log(label);
-		console.log(`clicked the marker: ${label || index}`)
+
 	}
 
 	removeATM() {
@@ -72,15 +60,18 @@ export class MapComponent {
 
 	mapClicked(event) {
 		if (this.handleAddATM) {
-
-			this.markers.push({
+			const location = {
 				lat: event.coords.lat,
 				lng: event.coords.lng
-			});
+			};
 
-			this.mapService.openAddATMModal().subscribe((data) => {
+			this.markers.push(Object.assign(location, {name: '', address: ''}));
+			this.mapService.openAddATMModal(location).subscribe((data) => {
 				if (data) {
-					this.mdSnackBar.open('ATM was successfully added.', '', {duration: 3000});
+					this.restService.addATM(data).subscribe((respData) => {
+						this.markers = respData;
+						this.mdSnackBar.open('ATM was successfully added.', '', {duration: 3000});
+					});
 				} else {
 					this.markers.pop();
 				}

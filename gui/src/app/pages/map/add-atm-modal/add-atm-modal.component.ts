@@ -1,6 +1,13 @@
 import {Component, Inject} from "@angular/core";
 import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 
+interface ATM {
+	name: string,
+	address: string,
+	lat: number;
+	lng: number;
+}
+
 @Component({
 	selector: 'add-atm-modal',
 	templateUrl: './add-atm-modal.component.html',
@@ -9,13 +16,15 @@ import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 })
 
 export class AddATMModalComponent {
-	public atm = {};
+	public atm: ATM = <ATM>{};
 	public loading: boolean = false;
 
 	constructor(public dialogRef: MdDialogRef<AddATMModalComponent>,
 				@Inject(MD_DIALOG_DATA) public modalData: any) {}
 
 	addATM() {
+		this.atm.lat = this.modalData.lat;
+		this.atm.lng = this.modalData.lng;
 		this.dialogRef.close(this.atm);
 	}
 }

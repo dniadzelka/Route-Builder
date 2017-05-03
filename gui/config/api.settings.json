@@ -7,9 +7,14 @@
 			"prefix": "{{local}}",
 			"endpoints": [
 				{
-					"name": "test",
-					"endpoint": "test",
-					"method": "test"
+					"name": "getATM",
+					"endpoint": "atm_locations",
+					"method": "GET"
+				},
+				{
+					"name": "addATM",
+					"endpoint": "add_atm",
+					"method": "POST"
 				}
 			]
 		}

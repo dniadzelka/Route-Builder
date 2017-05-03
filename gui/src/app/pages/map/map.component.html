@@ -4,15 +4,20 @@
 			<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"  (mapClick)="mapClicked($event)">
 				<sebm-google-map-marker
 					*ngFor="let m of markers; let i = index"
-					(markerClick)="clickedMarker(m.label, i)"
+					(markerClick)="clickedMarker(m, i)"
 					[latitude]="m.lat"
-					[longitude]="m.lng"
-					[label]="m.label">
+					[longitude]="m.lng">
 
 					<sebm-google-map-info-window>
 						<div>
-							<strong>ATM 56</strong>
+							<strong>{{m.name}}</strong>
 						</div>
+						<div>
+							{{m.address}}
+						</div>
+
+						<br>
+
 						<button color="accent" class="btn" md-raised-button>EDIT</button>
 						<button color="warn" class="btn" (click)="removeATM()" md-raised-button>DELETE</button>
 					</sebm-google-map-info-window>

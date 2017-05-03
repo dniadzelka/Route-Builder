@@ -36,7 +36,7 @@ export class ApiService {
 
 	private static extractData(res: Response) {
 		let body = res.json();
-		return body.docs || {};
+		return body || {};
 	}
 
 	private handleError(error: Response | any) {
