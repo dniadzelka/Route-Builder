@@ -21,6 +21,7 @@ import {
 
 import {NgModule, ModuleWithProviders} from "@angular/core";
 import {IterateObjectPipe} from "./pipes/iterate-object.pipe";
+import {ConfirmationModalModule} from "./components/confirmation-modal/confirmation-modal.module";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -45,7 +46,8 @@ import {IterateObjectPipe} from "./pipes/iterate-object.pipe";
 		MdToolbarModule,
 		MdCardModule,
 		MdMenuModule,
-		MdSnackBarModule
+		MdSnackBarModule,
+		ConfirmationModalModule
 	],
 	declarations: [IterateObjectPipe],
 	exports: [
@@ -67,7 +69,8 @@ import {IterateObjectPipe} from "./pipes/iterate-object.pipe";
 		MdCardModule,
 		MdMenuModule,
 		MdSnackBarModule,
-		IterateObjectPipe
+		IterateObjectPipe,
+		ConfirmationModalModule
 	]
 })
 

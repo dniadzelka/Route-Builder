@@ -10,6 +10,7 @@ import {AtmsModule} from "./pages/atms/atms.module";
 import {HttpClient} from "./shared/api/http-client.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AtmReportModule} from "./pages/atms/atm-report/atm-report.module";
+import {ConfirmationModalComponent} from "./shared/components/confirmation-modal/confirmation-modal.component";
 
 @NgModule({
 	imports: [
@@ -28,7 +29,7 @@ import {AtmReportModule} from "./pages/atms/atm-report/atm-report.module";
 	providers: [
 		HttpClient
 	],
-	entryComponents: [],
+	entryComponents: [ConfirmationModalComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
