@@ -8,12 +8,17 @@
 			"endpoints": [
 				{
 					"name": "getATM",
-					"endpoint": "atm_locations",
+					"endpoint": "atms",
 					"method": "GET"
 				},
 				{
 					"name": "addATM",
 					"endpoint": "add_atm",
+					"method": "POST"
+				},
+				{
+					"name": "deleteATM",
+					"endpoint": "delete_atm",
 					"method": "POST"
 				}
 			]

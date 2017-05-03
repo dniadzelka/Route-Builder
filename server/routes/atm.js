@@ -5,9 +5,9 @@ const db = low('./server/db/db.json');
 const express = require('express');
 const router = express.Router();
 
-router.get('/atm_locations', function(req, res, next) {
+router.get('/atms', function(req, res, next) {
 	const data = db.get('atms').value();
-	console.log('/atm_locations,  data: ' + JSON.stringify(data));
+	console.log('/atms,  data: ' + JSON.stringify(data));
 	res.json(data);
 });
 
@@ -23,7 +23,19 @@ router.post('/add_atm', function(req, res, next) {
 
 	db.get('atms').push(atm).write();
 	const data = db.get('atms').value();
-	console.log('/atm_locations,  data: ' + JSON.stringify(data));
+	console.log('/add_atm,  data: ' + JSON.stringify(data));
+	res.json(data);
+});
+
+router.post('/delete_atm', function(req, res, next) {
+	const params = req.body;
+
+	db.get('atms')
+		.remove(params)
+		.write();
+
+	const data = db.get('atms').value();
+	console.log('/delete_atm,  data: ' + JSON.stringify(data));
 	res.json(data);
 });
 

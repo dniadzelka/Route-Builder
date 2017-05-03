@@ -46,14 +46,15 @@ export class MapComponent {
 		});
 	}
 
-	clickedMarker(label: any, index: number) {
+	clickedMarker(label: any, index: number) {}
 
-	}
-
-	removeATM() {
-		this.popUpService.openDialog('CONFIRMATION', 'Do you want to delete this ATM?', 'DELETE', true).subscribe((data) => {
+	removeATM(id: string) {
+		this.popUpService.openDialog('CONFIRMATION', 'Do you want to delete this ATM?', 'OK', true).subscribe((data) => {
 			if (data) {
-				this.mdSnackBar.open('ATM was successfully removed.', '', {duration: 3000});
+				this.restService.deleteATM({id: id}).subscribe((respData) => {
+					this.markers = respData;
+					this.mdSnackBar.open('ATM was successfully removed.', '', {duration: 3000});
+				});
 			}
 		});
 	}

@@ -24,4 +24,8 @@ export class RestService extends ApiService {
 	addATM(dataParams: any) {
 		return super.post('addATM', dataParams, true);
 	}
+
+	deleteATM(dataParams: any) {
+		return super.post('deleteATM', dataParams, true);
+	}
 }
