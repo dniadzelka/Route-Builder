@@ -26,6 +26,7 @@ export class MapComponent {
 	leftPanelStateSubscription;
 	handleAddATM: boolean = false;
 	markers: marker[] = [];
+	loading: boolean = false;
 
 	constructor(private mdSnackBar: MdSnackBar, private popUpService: PopUpService, private mapService: MapService, private restService: RestService) {
 		//TODO: unsubscribe later
@@ -39,10 +40,14 @@ export class MapComponent {
 			}
 		});
 
-		restService.getATMs().subscribe((data) => {
-			//TODO: add spinner
+		this.initATMs();
+	}
+
+	initATMs() {
+		this.loading = true;
+		this.restService.getATMs().subscribe((data) => {
+			this.loading = false;
 			this.markers = data;
-			console.log(this.markers);
 		});
 	}
 
@@ -51,7 +56,9 @@ export class MapComponent {
 	removeATM(id: string) {
 		this.popUpService.openDialog('CONFIRMATION', 'Do you want to delete this ATM?', 'OK', true).subscribe((data) => {
 			if (data) {
+				this.loading = true;
 				this.restService.deleteATM({id: id}).subscribe((respData) => {
+					this.loading = false;
 					this.markers = respData;
 					this.mdSnackBar.open('ATM was successfully removed.', '', {duration: 3000});
 				});
@@ -69,7 +76,9 @@ export class MapComponent {
 			this.markers.push(Object.assign(location, {name: '', address: ''}));
 			this.mapService.openAddATMModal(location).subscribe((data) => {
 				if (data) {
+					this.loading = true;
 					this.restService.addATM(data).subscribe((respData) => {
+						this.loading = false;
 						this.markers = respData;
 						this.mdSnackBar.open('ATM was successfully added.', '', {duration: 3000});
 					});
