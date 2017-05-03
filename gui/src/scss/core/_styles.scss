@@ -1,7 +1,11 @@
 @import "../vars/_colors";
 .app-body {
 	.btn {
-		color: #fff !important;
+		color: white !important;
+	}
+
+	.left-panel-btn {
+		width: 100%;
 	}
 
 	.pull-left {
@@ -17,6 +21,10 @@
 		padding-bottom: 20px;
 	}
 
+	.global-md-card-left-panel {
+		padding: 0;
+	}
+
 	.global-md-card {
 		height: 100%;
 		padding: 0;
@@ -24,7 +32,7 @@
 
 	.global-md-card-content {
 		height: 100%;
-		padding: 16px;
+		padding: 10px;
 	}
 
 	.full-height-wrapper {
