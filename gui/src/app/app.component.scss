@@ -10,9 +10,12 @@
 	}
 
 	.logo {
+		color: white;
+		font-size: 24px;
+		padding-right: 50px;
+		text-decoration: none;
 		height: $atm-top-navigation-height;
-		width: 200px;
-		background-size: 600px $atm-top-navigation-height;
+		line-height: $atm-top-navigation-height;
 	}
 
 	.nav-button {
