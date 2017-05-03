@@ -38,11 +38,10 @@ export class AppComponent implements AfterContentInit {
 		// NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
-				switch(event.url) {
-					case '/atms':
-						this.sideNavOpened = false;
-						this.sideNavAvailable = false;
-						return;
+				if (event.url.indexOf('/atms/') === 0) {
+					this.sideNavOpened = true;
+					this.sideNavAvailable = true;
+					return;
 				}
 			}
 
