@@ -1,0 +1,45 @@
+:host {
+	.date-picker-wrapper {
+		position: relative;
+	}
+
+	.underline {
+		top: -1px;
+		height: 1px;
+		position: relative;
+		background-color: rgba(0, 0, 0, 0.12);
+	}
+
+	.material-placeholder {
+		top: -16px;
+		padding: 0 2px;
+		font-size: 1.2rem;
+		position: absolute;
+		color: rgba(0, 0, 0, 0.38);
+	}
+
+	/deep/ {
+		div.datepicker {
+			width: 100%;
+		}
+
+		div.datepicker__calendar {
+			height: 24.5em;
+			width: 20.8em;
+		}
+
+		div.datepicker__calendar__cancel {
+			display: none;
+		}
+
+		input.datepicker__input {
+			padding: 0;
+			width: 100%;
+			cursor: pointer;
+			border: 0!important;
+			font-size: 1.6rem;
+			line-height: 30px;
+			color: rgba(0, 0, 0, 0.38);
+		}
+	}
+}

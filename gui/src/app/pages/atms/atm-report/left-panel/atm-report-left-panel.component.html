@@ -1,15 +1,19 @@
 <md-card class="global-md-card-left-panel">
-	<md-card-content class="global-md-card-content full-height-wrapper">
-		<div class="full-height">
-			<!--<md-input-container>-->
-				<!--<input mdInput type="number" min="0" placeholder="Amount From, %" [(ngModel)]="state.from">-->
-			<!--</md-input-container>-->
-			<!--<md-input-container>-->
-				<!--<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">-->
-			<!--</md-input-container>-->
-			<button color="primary" (click)="backToATMs()" class="btn left-panel-btn" md-raised-button>
-				<i class="material-icons">keyboard_backspace</i> BACK TO ATMs
-			</button>
+	<md-card-content class="global-md-card-content">
+		<button color="primary" (click)="backToATMs()" class="btn left-panel-btn" md-raised-button>
+			<i class="material-icons">keyboard_backspace</i> BACK TO ATMs
+		</button>
+		<div class="date-picker-input">
+			<date-picker [(date)]="state.dateFrom" [placeholder]="'Date From'"></date-picker>
 		</div>
+		<div class="date-picker-input">
+			<date-picker [(date)]="state.dateTo" [placeholder]="'Date To'"></date-picker>
+		</div>
+		<button color="accent" (click)="apply()" class="btn left-panel-btn apply-reset-btn" md-raised-button>
+			APPLY
+		</button>
+		<button (click)="reset()" class="left-panel-btn apply-reset-btn" md-button>
+			RESET
+		</button>
 	</md-card-content>
 </md-card>

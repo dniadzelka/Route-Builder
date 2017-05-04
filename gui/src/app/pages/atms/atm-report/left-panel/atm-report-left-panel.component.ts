@@ -9,7 +9,26 @@ import {Router} from "@angular/router";
 })
 
 export class AtmReportLeftPanelComponent {
-	constructor(private router: Router) {}
+	state = <any>{};
+	DEFAULT_DATE_FROM = new Date('2017-01-01');
+	DEFAULT_DATE_TO = new Date();
+
+	constructor(private router: Router) {
+		this.init();
+	}
+
+	init() {
+		this.state.dateFrom = this.DEFAULT_DATE_FROM;
+		this.state.dateTo = this.DEFAULT_DATE_TO;
+	}
+
+	reset() {
+		this.init();
+	}
+
+	apply() {
+		//TODO: handle apply action
+	}
 
 	backToATMs() {
 		this.router.navigate(['/atms']);

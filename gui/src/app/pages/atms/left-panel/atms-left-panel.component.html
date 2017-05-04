@@ -1,17 +1,22 @@
 <md-card class="global-md-card-left-panel">
-	<md-card-content class="global-md-card-content full-height-wrapper">
-		<div class="full-height">
-			<md-input-container>
-				<input mdInput type="number" min="0" placeholder="Amount From, %" [(ngModel)]="state.from">
-			</md-input-container>
-			<md-input-container>
-				<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">
-			</md-input-container>
-			<md-select placeholder="Status" [(ngModel)]="state.status">
-				<md-option *ngFor="let status of statuses" [value]="status.value">
-					{{status.viewValue}}
-				</md-option>
-			</md-select>
-		</div>
+	<md-card-content class="global-md-card-content">
+		<md-input-container>
+			<input mdInput type="number" min="0" placeholder="Amount From, %" [(ngModel)]="state.from">
+		</md-input-container>
+		<md-input-container>
+			<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">
+		</md-input-container>
+		<md-select placeholder="Status" [(ngModel)]="state.status">
+			<md-option *ngFor="let status of statuses" [value]="status.value">
+				{{status.viewValue}}
+			</md-option>
+		</md-select>
+
+		<button color="accent" (click)="apply()" class="btn left-panel-btn apply-reset-btn" md-raised-button>
+			APPLY
+		</button>
+		<button (click)="reset()" class="left-panel-btn apply-reset-btn" md-button>
+			RESET
+		</button>
 	</md-card-content>
 </md-card>

@@ -22,6 +22,7 @@ import {
 import {NgModule, ModuleWithProviders} from "@angular/core";
 import {IterateObjectPipe} from "./pipes/iterate-object.pipe";
 import {ConfirmationModalModule} from "./components/confirmation-modal/confirmation-modal.module";
+import {DatePickerModule} from "./components/date-picker/date-pickeer.module";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -47,7 +48,8 @@ import {ConfirmationModalModule} from "./components/confirmation-modal/confirmat
 		MdCardModule,
 		MdMenuModule,
 		MdSnackBarModule,
-		ConfirmationModalModule
+		ConfirmationModalModule,
+		DatePickerModule
 	],
 	declarations: [IterateObjectPipe],
 	exports: [
@@ -70,7 +72,8 @@ import {ConfirmationModalModule} from "./components/confirmation-modal/confirmat
 		MdMenuModule,
 		MdSnackBarModule,
 		IterateObjectPipe,
-		ConfirmationModalModule
+		ConfirmationModalModule,
+		DatePickerModule
 	]
 })
 

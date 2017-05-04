@@ -8,13 +8,30 @@ import {Component} from "@angular/core";
 })
 
 export class AtmsLeftPanelComponent {
-	state = {};
+	state = <any>{};
 	statuses = [
+		{value: 'ALL', viewValue: 'All Statuses'},
 		{value: 'REGULAR', viewValue: 'Regular'},
 		{value: 'QUEUE', viewValue: 'In Queue'},
 		{value: 'PROCESSING', viewValue: 'Processing'},
 		{value: 'DELIVERY', viewValue: 'Delivery'}
 	];
 
-	constructor() {}
+	constructor() {
+		this.init();
+	}
+
+	init() {
+		this.state.status = 'ALL';
+		this.state.from = 0;
+		this.state.to = 50;
+	}
+
+	reset() {
+		this.init();
+	}
+
+	apply() {
+		//TODO: handle apply action
+	}
 }
