@@ -12,6 +12,11 @@
 					"method": "GET"
 				},
 				{
+					"name": "getMinskAreas",
+					"endpoint": "minsk_areas",
+					"method": "GET"
+				},
+				{
 					"name": "addATM",
 					"endpoint": "add_atm",
 					"method": "POST"

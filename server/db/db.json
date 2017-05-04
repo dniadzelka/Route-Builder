@@ -27,6 +27,56 @@
       "address": "ul. Samsonava 13/4",
       "lat": 53.882892721712686,
       "lng": 27.537918090820312
+    },
+    {
+      "id": "1493886856338",
+      "name": "ATM 10",
+      "address": "pr. Nezavisimoti 57",
+      "lat": 53.91242791331527,
+      "lng": 27.58495330810547,
+      "area": "2"
+    }
+  ],
+  "areas": [
+    {
+      "value": "1",
+      "viewValue": "Zavodskoy"
+    },
+    {
+      "value": "2",
+      "viewValue": "Leninskiy"
+    },
+    {
+      "value": "3",
+      "viewValue": "Moskovskiy"
+    },
+    {
+      "value": "4",
+      "viewValue": "Oktyabr'skiy"
+    },
+    {
+      "value": "5",
+      "viewValue": "Partizanskiy"
+    },
+    {
+      "value": "6",
+      "viewValue": "Pervomayskiy"
+    },
+    {
+      "value": "7",
+      "viewValue": "Sovetskiy"
+    },
+    {
+      "value": "8",
+      "viewValue": "Frunzenskiy"
+    },
+    {
+      "value": "9",
+      "viewValue": "Tsentral'nyy"
+    },
+    {
+      "value": "10",
+      "viewValue": "Other"
     }
   ]
 }

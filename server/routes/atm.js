@@ -11,6 +11,12 @@ router.get('/atms', function(req, res, next) {
 	res.json(data);
 });
 
+router.get('/minsk_areas', function(req, res, next) {
+	const data = db.get('areas').value();
+	console.log('/minsk_areas,  data: ' + JSON.stringify(data));
+	res.json(data);
+});
+
 router.post('/add_atm', function(req, res, next) {
 	const params = req.body;
 	const atm = {
@@ -18,7 +24,8 @@ router.post('/add_atm', function(req, res, next) {
 		name: params.name,
 		address: params.address,
 		lat: params.lat,
-		lng: params.lng
+		lng: params.lng,
+		area: params.area
 	};
 
 	db.get('atms').push(atm).write();

@@ -3,8 +3,11 @@
 		width: 100%;
 	}
 
-	md-select {
+	.select-container {
 		margin-top: 8px;
+		&.last {
+			margin-top: 24px;
+		}
 	}
 
 	.apply-reset-btn {

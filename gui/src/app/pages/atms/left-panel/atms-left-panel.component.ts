@@ -1,28 +1,25 @@
 import {Component} from "@angular/core";
+import {CommonService} from "../../../shared/services/common.service";
 
 @Component({
 	selector: 'atms-left-panel',
 	templateUrl: './atms-left-panel.component.html',
 	styleUrls: ['./atms-left-panel.component.scss'],
-	providers: []
+	providers: [CommonService]
 })
 
 export class AtmsLeftPanelComponent {
 	state = <any>{};
-	statuses = [
-		{value: 'ALL', viewValue: 'All Statuses'},
-		{value: 'REGULAR', viewValue: 'Regular'},
-		{value: 'QUEUE', viewValue: 'In Queue'},
-		{value: 'PROCESSING', viewValue: 'Processing'},
-		{value: 'DELIVERY', viewValue: 'Delivery'}
-	];
+	statuses = CommonService.getStatuses();
+	areas = CommonService.getMinskAreas();
 
 	constructor() {
 		this.init();
 	}
 
 	init() {
-		this.state.status = 'ALL';
+		this.state.area = '';
+		this.state.status = '';
 		this.state.from = 0;
 		this.state.to = 50;
 	}

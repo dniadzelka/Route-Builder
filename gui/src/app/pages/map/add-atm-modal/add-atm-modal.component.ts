@@ -4,6 +4,7 @@ import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 interface ATM {
 	name: string,
 	address: string,
+	area: string,
 	lat: number;
 	lng: number;
 }
@@ -23,8 +24,6 @@ export class AddATMModalComponent {
 				@Inject(MD_DIALOG_DATA) public modalData: any) {}
 
 	addATM() {
-		this.atm.lat = this.modalData.lat;
-		this.atm.lng = this.modalData.lng;
-		this.dialogRef.close(this.atm);
+		this.dialogRef.close(Object.assign(this.atm, this.modalData.location));
 	}
 }

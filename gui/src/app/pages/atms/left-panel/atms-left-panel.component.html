@@ -6,12 +6,20 @@
 		<md-input-container>
 			<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">
 		</md-input-container>
-		<md-select placeholder="Status" [(ngModel)]="state.status">
-			<md-option *ngFor="let status of statuses" [value]="status.value">
-				{{status.viewValue}}
-			</md-option>
-		</md-select>
-
+		<div class="select-container">
+			<md-select placeholder="Status" [(ngModel)]="state.status">
+				<md-option *ngFor="let status of statuses" [value]="status.value">
+					{{status.viewValue}}
+				</md-option>
+			</md-select>
+		</div>
+		<div class="select-container last">
+			<md-select placeholder="Area" [(ngModel)]="state.area">
+				<md-option *ngFor="let area of areas" [value]="area.value">
+					{{area.viewValue}}
+				</md-option>
+			</md-select>
+		</div>
 		<button color="accent" (click)="apply()" class="btn left-panel-btn apply-reset-btn" md-raised-button>
 			APPLY
 		</button>

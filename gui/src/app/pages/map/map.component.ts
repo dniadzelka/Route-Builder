@@ -4,10 +4,11 @@ import {MdSnackBar} from "@angular/material";
 import {PopUpService} from "../../shared/services/pop-up-service";
 import {MapService} from "./map.service";
 import {RestService} from "../../shared/api/rest.service";
+import {Observable} from "rxjs";
 
 interface marker {
-	name: string,
-	address: string,
+	name?: string,
+	address?: string,
 	lat: number;
 	lng: number;
 }
@@ -20,6 +21,7 @@ interface marker {
 })
 
 export class MapComponent implements OnDestroy {
+	minskAreas;
 	zoom: number = 12;
 	lat: number = 53.904540;
 	lng: number = 27.561524;
@@ -39,14 +41,18 @@ export class MapComponent implements OnDestroy {
 			}
 		});
 
-		this.initATMs();
+		this.init();
 	}
 
-	initATMs() {
+	init() {
 		this.loading = true;
-		this.restService.getATMs().subscribe((data) => {
+		Observable.forkJoin([
+			this.restService.getATMs(),
+			this.restService.getMinskAreas()
+		]).subscribe((response: any[]) => {
+			this.markers = response[0];
+			this.minskAreas = response[1];
 			this.loading = false;
-			this.markers = data;
 		});
 	}
 
@@ -72,8 +78,11 @@ export class MapComponent implements OnDestroy {
 				lng: event.coords.lng
 			};
 
-			this.markers.push(Object.assign(location, {name: '', address: ''}));
-			this.mapService.openAddATMModal(location).subscribe((data) => {
+			this.markers.push(location);
+			this.mapService.openAddATMModal({
+				location: location,
+				minskAreas: this.minskAreas
+			}).subscribe((data) => {
 				if (data) {
 					this.loading = true;
 					this.restService.addATM(data).subscribe((respData) => {
