@@ -1,21 +1,30 @@
 <md-card class="global-md-card">
 	<md-spinner *ngIf="loading"></md-spinner>
+
 	<md-card-content class="global-md-card-content full-height-wrapper" [ngClass]="{'loading-bg': loading}">
-		<div class="full-height">
+		<md-input-container>
+			<input mdInput type="text" placeholder="Search" [(ngModel)]="search">
+		</md-input-container>
+
+		<div class="full-height table-wrapper">
 			<table class="table striped">
-				<tr class="table-header">
-					<th>
-						ATM
-					</th>
-					<th>
-						Address
-					</th>
-				</tr>
+				<thead>
+					<tr class="table-header">
+						<th>
+							ATM
+						</th>
+						<th>
+							Address
+						</th>
+					</tr>
+				</thead>
+				<tbody>
 				<tr *ngFor="let row of atmTable" (click)="goToATMReport(row.id)">
 					<td *ngFor="let column of row | iterateObject : iterateKeys">
 						{{column}}
 					</td>
 				</tr>
+				</tbody>
 			</table>
 		</div>
 	</md-card-content>

@@ -1,7 +1,17 @@
 <md-card class="global-md-card-left-panel">
 	<md-card-content class="global-md-card-content full-height-wrapper">
 		<div class="full-height">
-			test
+			<md-input-container>
+				<input mdInput type="number" min="0" placeholder="Amount From, %" [(ngModel)]="state.from">
+			</md-input-container>
+			<md-input-container>
+				<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">
+			</md-input-container>
+			<md-select placeholder="Status" [(ngModel)]="state.status">
+				<md-option *ngFor="let status of statuses" [value]="status.value">
+					{{status.viewValue}}
+				</md-option>
+			</md-select>
 		</div>
 	</md-card-content>
 </md-card>

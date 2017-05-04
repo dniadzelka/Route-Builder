@@ -1,7 +1,15 @@
 <md-card class="global-md-card-left-panel">
 	<md-card-content class="global-md-card-content full-height-wrapper">
 		<div class="full-height">
-			test
+			<!--<md-input-container>-->
+				<!--<input mdInput type="number" min="0" placeholder="Amount From, %" [(ngModel)]="state.from">-->
+			<!--</md-input-container>-->
+			<!--<md-input-container>-->
+				<!--<input mdInput type="number" max="100" placeholder="Amount To, %" [(ngModel)]="state.to">-->
+			<!--</md-input-container>-->
+			<button color="primary" (click)="backToATMs()" class="btn left-panel-btn" md-raised-button>
+				<i class="material-icons">keyboard_backspace</i> BACK TO ATMs
+			</button>
 		</div>
 	</md-card-content>
 </md-card>

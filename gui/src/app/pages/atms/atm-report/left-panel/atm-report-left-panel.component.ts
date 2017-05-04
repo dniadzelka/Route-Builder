@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Component({
 	selector: 'atm-report-left-panel',
@@ -8,5 +9,9 @@ import {Component} from "@angular/core";
 })
 
 export class AtmReportLeftPanelComponent {
-	constructor() {}
+	constructor(private router: Router) {}
+
+	backToATMs() {
+		this.router.navigate(['/atms']);
+	}
 }
