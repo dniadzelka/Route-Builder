@@ -29,6 +29,7 @@ export class MapComponent implements OnDestroy {
 	handleAddATM: boolean = false;
 	markers: marker[] = [];
 	loading: boolean = false;
+	googleMap: boolean = false;
 
 	constructor(private mdSnackBar: MdSnackBar, private popUpService: PopUpService, private mapService: MapService, private restService: RestService) {
 		this.leftPanelStateSubscription = MapBindingsService.leftStateChanged().subscribe((state) => {
@@ -52,7 +53,12 @@ export class MapComponent implements OnDestroy {
 		]).subscribe((response: any[]) => {
 			this.markers = response[0];
 			this.minskAreas = response[1];
-			this.loading = false;
+
+			//TODO: fix it in furure, bad code
+			setTimeout(() => {
+				this.googleMap = true;
+				this.loading = false;
+			}, 500);
 		});
 	}
 
@@ -97,6 +103,12 @@ export class MapComponent implements OnDestroy {
 
 			this.handleAddATM = false;
 		}
+	}
+
+	addATM(): void {
+		MapBindingsService.applyLeftPanelState({
+			addATM: true
+		});
 	}
 
 	ngOnDestroy() {

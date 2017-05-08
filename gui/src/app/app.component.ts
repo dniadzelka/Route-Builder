@@ -45,6 +45,12 @@ export class AppComponent implements AfterContentInit {
 					this.headerAvailable = false;
 					return;
 				}
+
+				if (event.url.indexOf('/map') === 0) {
+					this.sideNavOpened = false;
+					this.sideNavAvailable = false;
+					return;
+				}
 			}
 
 			this.sideNavOpened = true;

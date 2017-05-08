@@ -1,8 +1,10 @@
 <md-card class="global-md-card">
 	<md-spinner *ngIf="loading"></md-spinner>
 	<md-card-content class="global-md-card-content full-height-wrapper" [ngClass]="{'loading-bg': loading}">
+		<button color="accent" (click)="addATM()" class="btn add-atm" md-raised-button>ADD NEW ATM</button>
+
 		<div class="full-height">
-			<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"  (mapClick)="mapClicked($event)">
+			<sebm-google-map *ngIf="googleMap" [latitude]="lat" [longitude]="lng" [zoom]="zoom"  (mapClick)="mapClicked($event)">
 				<sebm-google-map-marker
 					*ngFor="let m of markers; let i = index"
 					(markerClick)="clickedMarker(m, i)"

@@ -2,4 +2,12 @@
 	.sebm-google-map-container {
 		height: 100%;
 	}
+
+	.add-atm {
+		width: 200px;
+		position: absolute;
+		z-index: 100;
+		right: 20px;
+		top: 20px;
+	}
 }
