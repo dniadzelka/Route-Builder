@@ -11,6 +11,9 @@
 				<thead>
 					<tr class="table-header">
 						<th>
+							<md-checkbox [(ngModel)]="checkedAll"></md-checkbox>
+						</th>
+						<th>
 							ATM
 						</th>
 						<th>
@@ -20,6 +23,9 @@
 				</thead>
 				<tbody>
 				<tr *ngFor="let row of atmTable" (click)="goToATMReport(row.id)">
+					<td (click)="$event.stopPropagation()">
+						<md-checkbox [(ngModel)]="row.checked" [checked]="checkedAll"></md-checkbox>
+					</td>
 					<td *ngFor="let column of row | iterateObject : iterateKeys">
 						{{column}}
 					</td>

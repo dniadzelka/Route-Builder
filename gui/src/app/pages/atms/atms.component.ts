@@ -21,6 +21,11 @@ export class AtmsComponent {
 	initTable() {
 		this.loading = true;
 		this.restService.getATMs().subscribe((data) => {
+			data.map((item) => {
+				item.checked = false;
+				return item;
+			});
+
 			this.loading = false;
 			this.atmTable = data;
 		});
