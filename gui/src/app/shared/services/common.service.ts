@@ -12,6 +12,14 @@ export class CommonService {
 		];
 	}
 
+	static getCurrencies() {
+		return [
+			{value: 'BLN', viewValue: 'Belarussian Rubles'},
+			{value: 'EUR', viewValue: 'Euro'},
+			{value: 'USD', viewValue: 'Ameriacan Dollars'}
+		];
+	}
+
 	static getMinskAreas() {
 		return [
 			{

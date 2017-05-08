@@ -5,17 +5,41 @@
 			ADD ATM
 		</h1>
 		<div md-dialog-content>
-			<md-input-container>
-				<input mdInput type="text" placeholder="Name" required [(ngModel)]="atm.name">
-			</md-input-container>
-			<md-input-container>
-				<input mdInput type="text" placeholder="Address" required [(ngModel)]="atm.address">
-			</md-input-container>
-			<md-select placeholder="Area" [(ngModel)]="atm.area">
-				<md-option *ngFor="let area of modalData.minskAreas" [value]="area.value">
-					{{area.viewValue}}
-				</md-option>
-			</md-select>
+			<div class="full-width">
+				<md-input-container>
+					<input mdInput type="text" placeholder="Name" required [(ngModel)]="atm.name">
+				</md-input-container>
+				<md-input-container>
+					<input mdInput type="text" placeholder="Address" required [(ngModel)]="atm.address">
+				</md-input-container>
+				<md-select placeholder="Area" [(ngModel)]="atm.area">
+					<md-option *ngFor="let area of modalData.minskAreas" [value]="area.value">
+						{{area.viewValue}}
+					</md-option>
+				</md-select>
+			</div>
+
+			<div class="one-line" *ngFor="let cassete of cassettes">
+				<md-input-container>
+					<input mdInput type="number" placeholder="Max capacity" required>
+				</md-input-container>
+
+				<md-input-container>
+					<input mdInput type="number" placeholder="Denomination" required>
+				</md-input-container>
+
+				<md-select placeholder="Currency">
+					<md-option *ngFor="let currency of currencies" [value]="currency.value">
+						{{currency.viewValue}}
+					</md-option>
+				</md-select>
+			</div>
+			<button *ngIf="cassettes.length < 6" (click)="addCassette()" class="add-remove-cassette-btn" md-button>
+				ADD CASSETTE
+			</button>
+			<button *ngIf="cassettes.length > 4" (click)="removeCassette()" class="add-remove-cassette-btn" md-button>
+				REMOVE CASSETTE
+			</button>
 		</div>
 		<div md-dialog-actions class="clearfix">
 			<div class="pull-right">

@@ -17,6 +17,9 @@ export class RestService extends ApiService {
 	// 	}
 	// }
 
+	// TODO: get address by lat, lng
+	// http://maps.googleapis.com/maps/api/geocode/json?latlng=53.904540,27.561524&sensor=true
+
 	getATMs() {
 		return super.get('getATM', true);
 	}
