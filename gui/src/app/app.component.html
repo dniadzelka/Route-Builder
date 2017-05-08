@@ -1,4 +1,4 @@
-<md-toolbar class="navigation-bar mat-elevation-z6" color="primary">
+<md-toolbar class="navigation-bar mat-elevation-z6" color="primary" *ngIf="headerAvailable">
 	<!--ATM vision-->
 	<a routerLink="/map" class="logo">ATM Assistant</a>
 	<a md-button class="nav-button" routerLink="/atms" routerLinkActive="active"><i class="material-icons left">credit_card</i> ATMs </a>

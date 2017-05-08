@@ -5,7 +5,7 @@ import {AtmsRoutes} from "./pages/atms/atms.routes";
 export const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'map',
+		redirectTo: 'login',
 		pathMatch: 'full'
 	},
 	...MapRoutes,

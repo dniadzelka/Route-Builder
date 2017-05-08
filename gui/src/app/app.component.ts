@@ -15,6 +15,7 @@ export class AppComponent implements AfterContentInit {
 	public mainContentHeight: number = 0;
 	public sideNavOpened: boolean = true;
 	public sideNavAvailable: boolean = true;
+	public headerAvailable: boolean = true;
 
 	constructor(public router: Router) {
 		this.initSideNav();
@@ -38,14 +39,16 @@ export class AppComponent implements AfterContentInit {
 		// NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
-				if (event.url.indexOf('/atms/') === 0) {
-					this.sideNavOpened = true;
-					this.sideNavAvailable = true;
+				if (event.url.indexOf('/login') === 0) {
+					this.sideNavOpened = false;
+					this.sideNavAvailable = false;
+					this.headerAvailable = false;
 					return;
 				}
 			}
 
 			this.sideNavOpened = true;
+			this.headerAvailable = true;
 			this.sideNavAvailable = true;
 		});
 	}
