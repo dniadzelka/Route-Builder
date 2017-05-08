@@ -1,6 +1,18 @@
 @import "../../../scss/vars/global";
 
 :host {
+	.table-search {
+		width: 80%;
+		md-input-container {
+			width: 100%;
+		}
+	}
+	
+	.table-actions {
+		right: 10px;
+		position: absolute;
+	}
+
 	.table-wrapper {
 		overflow-y: auto;
 	}

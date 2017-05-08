@@ -2,29 +2,41 @@
 	<md-spinner *ngIf="loading"></md-spinner>
 
 	<md-card-content class="global-md-card-content full-height-wrapper" [ngClass]="{'loading-bg': loading}">
-		<md-input-container>
-			<input mdInput type="text" placeholder="Search" [(ngModel)]="search">
-		</md-input-container>
+		<div class="table-search">
+			<md-input-container>
+				<input mdInput type="text" placeholder="Search" [(ngModel)]="search">
+			</md-input-container>
+		</div>
+
+		<div class="table-actions">
+			<button color="accent" class="btn" (click)="openRulesModal()" [disabled]="!isRulesAvailable()" md-raised-button>
+				RULES
+			</button>
+
+			<button color="primary" class="btn" (click)="print()" md-raised-button>
+				<i class="material-icons left">print</i> PRINT
+			</button>
+		</div>
 
 		<div class="full-height table-wrapper">
 			<table class="table striped">
 				<thead>
-					<tr class="table-header">
-						<th>
-							<md-checkbox [(ngModel)]="checkedAll"></md-checkbox>
-						</th>
-						<th>
-							ATM
-						</th>
-						<th>
-							Address
-						</th>
-					</tr>
+				<tr class="table-header">
+					<th>
+						<md-checkbox [(ngModel)]="checkedAll"></md-checkbox>
+					</th>
+					<th>
+						ATM
+					</th>
+					<th>
+						Address
+					</th>
+				</tr>
 				</thead>
 				<tbody>
-				<tr *ngFor="let row of atmTable" (click)="goToATMReport(row.id)">
+				<tr *ngFor="let row of atmTable; let i = index;" (click)="goToATMReport(row.id)">
 					<td (click)="$event.stopPropagation()">
-						<md-checkbox [(ngModel)]="row.checked" [checked]="checkedAll"></md-checkbox>
+						<md-checkbox [(ngModel)]="atmTable[i].checked" [checked]="checkedAll"></md-checkbox>
 					</td>
 					<td *ngFor="let column of row | iterateObject : iterateKeys">
 						{{column}}

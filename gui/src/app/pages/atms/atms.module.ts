@@ -5,6 +5,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {AtmsRoutes} from "./atms.routes";
 import {AtmsLeftPanelComponent} from "./left-panel/atms-left-panel.component";
+import {RulesModalComponent} from "./rules-modal/rules-modal.component";
 
 @NgModule({
 	imports: [
@@ -14,9 +15,10 @@ import {AtmsLeftPanelComponent} from "./left-panel/atms-left-panel.component";
 	],
 	declarations: [
 		AtmsComponent,
-		AtmsLeftPanelComponent
+		AtmsLeftPanelComponent,
+		RulesModalComponent
 	],
-	entryComponents: [],
+	entryComponents: [RulesModalComponent],
 	exports: [
 		AtmsComponent,
 		AtmsLeftPanelComponent
