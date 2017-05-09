@@ -13,7 +13,7 @@ import {PopUpService} from "../../shared/services/pop-up-service";
 
 export class AtmsComponent {
 	loading: boolean;
-	public iterateKeys: Array<string> = ['name', 'address'];
+	public iterateKeys: Array<string> = ['name', 'address', 'area', 'status', 'amount', 'currencies'];
 	public atmTable: Array<any> = [];
 
 	constructor(private router: Router, private restService: RestService, private atmsService: AtmsService) {
@@ -22,7 +22,7 @@ export class AtmsComponent {
 
 	initTable() {
 		this.loading = true;
-		this.restService.getATMs().subscribe((data) => {
+		this.restService.getATMsTable().subscribe((data) => {
 			this.loading = false;
 			this.atmTable = data;
 		});

@@ -24,6 +24,10 @@ export class RestService extends ApiService {
 		return super.get('getATM', true);
 	}
 
+	getATMsTable() {
+		return super.get('getATMsTable', true);
+	}
+
 	getMinskAreas() {
 		return super.get('getMinskAreas', false);
 	}

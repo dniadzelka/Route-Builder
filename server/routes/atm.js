@@ -5,9 +5,27 @@ const db = low('./server/db/db.json');
 const express = require('express');
 const router = express.Router();
 
+function randomIntFromInterval(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 router.get('/atms', function(req, res, next) {
 	const data = db.get('atms').value();
 	console.log('/atms,  data: ' + JSON.stringify(data));
+	res.json(data);
+});
+
+router.get('/atms_table', function(req, res, next) {
+	var data = db.get('atms').value();
+	var areas = db.get('areas');
+
+	data.map(function(item) {
+		item.area = areas.find({ value: '1' }).value().viewValue;
+		item.amount = randomIntFromInterval(0, 100);
+		item.status = item.amount < 10 ? 'In Queue' : 'Regular';
+		return item;
+	});
+
 	res.json(data);
 });
 

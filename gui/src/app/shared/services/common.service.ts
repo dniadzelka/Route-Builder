@@ -20,6 +20,23 @@ export class CommonService {
 		];
 	}
 
+	static getStatisticPeriods() {
+		return [
+			{value: 'LAST1', viewValue: 'Last month'},
+			{value: 'LAST3', viewValue: 'Lats quarter'},
+			{value: 'LAST6', viewValue: 'Last 6 months'},
+			{value: 'LAST12', viewValue: 'Last year'}
+		];
+	}
+
+	static getGranularities() {
+		return [
+			{value: 'WEEK', viewValue: 'Week'},
+			{value: 'MONTH', viewValue: 'Lats quarter'},
+			{value: 'QUARTER', viewValue: 'Quarter'}
+		];
+	}
+
 	static getMinskAreas() {
 		return [
 			{

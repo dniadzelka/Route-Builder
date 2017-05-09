@@ -12,6 +12,11 @@
 					"method": "GET"
 				},
 				{
+					"name": "getATMsTable",
+					"endpoint": "atms_table",
+					"method": "GET"
+				},
+				{
 					"name": "getMinskAreas",
 					"endpoint": "minsk_areas",
 					"method": "GET"

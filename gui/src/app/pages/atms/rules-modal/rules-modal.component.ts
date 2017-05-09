@@ -1,5 +1,6 @@
 import {Component, Inject} from "@angular/core";
 import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
+import {CommonService} from "../../../shared/services/common.service";
 
 @Component({
 	selector: 'rules-modal',
@@ -9,46 +10,13 @@ import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 })
 
 export class RulesModalComponent {
-	// public atm: ATM = <ATM>{};
-	// public loading: boolean = false;
-	// public currencies: any = CommonService.getCurrencies();
-	// public cassettes: any = [
-	// 	{
-	// 		max_number: null,
-	// 		currency: 'BLN'
-	// 	},
-	// 	{
-	// 		max_number: null,
-	// 		currency: 'BLN'
-	// 	},
-	// 	{
-	// 		max_number: null,
-	// 		currency: 'BLN'
-	// 	},
-	// 	{
-	// 		max_number: null,
-	// 		currency: 'BLN'
-	// 	}
-	// ];
+	public rules = <any>{};
+	public statisticPeriods = CommonService.getStatisticPeriods();
+	public granularities = CommonService.getGranularities();
 
 	constructor(public dialogRef: MdDialogRef<RulesModalComponent>,
 				@Inject(MD_DIALOG_DATA) public modalData: any) {
 	}
-
-	// addATM() {
-	// 	this.dialogRef.close(Object.assign(this.atm, this.modalData.location));
-	// }
-	//
-	// addCassette() {
-	// 	this.cassettes.push({
-	// 		max_number: null,
-	// 		currency: 'BLN'
-	// 	});
-	// }
-	//
-	// removeCassette() {
-	// 	this.cassettes.pop();
-	// }
 
 	save(): void {
 
