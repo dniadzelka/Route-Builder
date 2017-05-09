@@ -43,7 +43,7 @@
 					</md-input-container>
 				</div>
 				<div class="input-container">
-					<md-select placeholder="Statistic Period" [(ngModel)]="rules.granularity">
+					<md-select placeholder="Granularity" [(ngModel)]="rules.granularity">
 						<md-option *ngFor="let granularity of granularities" [value]="granularity.value">
 							{{granularity.viewValue}}
 						</md-option>

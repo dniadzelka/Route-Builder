@@ -32,7 +32,7 @@ export class CommonService {
 	static getGranularities() {
 		return [
 			{value: 'WEEK', viewValue: 'Week'},
-			{value: 'MONTH', viewValue: 'Lats quarter'},
+			{value: 'MONTH', viewValue: 'Month'},
 			{value: 'QUARTER', viewValue: 'Quarter'}
 		];
 	}

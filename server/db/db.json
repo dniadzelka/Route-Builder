@@ -6,7 +6,9 @@
       "address": "Timiraziva 44",
       "lat": 53.91575816263316,
       "lng": 27.521953582763672,
-	    "area": "2"
+      "area": "Zavodskoy",
+      "amount": 80,
+      "status": "Regular"
     },
     {
       "id": "1493835433028",
@@ -14,7 +16,9 @@
       "address": "ul. Vaneeva 16",
       "lat": 53.87651766472664,
       "lng": 27.59765625,
-	    "area": "2"
+      "area": "Zavodskoy",
+      "amount": 82,
+      "status": "Regular"
     },
     {
       "id": "1493835485970",
@@ -22,7 +26,9 @@
       "address": "pr. Nezavisimosti 21",
       "lat": 53.89695488571692,
       "lng": 27.54971981048584,
-	    "area": "4"
+      "area": "Zavodskoy",
+      "amount": 41,
+      "status": "Regular"
     },
     {
       "id": "1493836070320",
@@ -30,7 +36,9 @@
       "address": "ul. Samsonava 13/4",
       "lat": 53.882892721712686,
       "lng": 27.537918090820312,
-	    "area": "2"
+      "area": "Zavodskoy",
+      "amount": 96,
+      "status": "Regular"
     },
     {
       "id": "1493886856338",
@@ -38,7 +46,9 @@
       "address": "pr. Nezavisimoti 57",
       "lat": 53.91242791331527,
       "lng": 27.58495330810547,
-      "area": "2"
+      "area": "Zavodskoy",
+      "amount": 0,
+      "status": "In Queue"
     },
     {
       "id": "1493993529344",
@@ -46,7 +56,17 @@
       "address": "test33",
       "lat": 53.93365607146904,
       "lng": 27.545127868652344,
-      "area": "2"
+      "area": "Zavodskoy",
+      "amount": 31,
+      "status": "Regular"
+    },
+    {
+      "id": "1494329314835",
+      "name": "ATM 63",
+      "address": "partyzanski praspiekt 182",
+      "lat": 53.84442524482528,
+      "lng": 27.707862854003906,
+      "area": "1"
     }
   ],
   "areas": [
