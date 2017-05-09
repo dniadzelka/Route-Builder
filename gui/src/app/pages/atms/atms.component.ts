@@ -51,7 +51,27 @@ export class AtmsComponent {
 		});
 	}
 
-	print(): void {
-		window.print();
+	print(printSectionId: string): void {
+		let popupWinindow;
+		let innerContents = document.getElementById(printSectionId).innerHTML;
+		popupWinindow = window.open('', '_blank', 'height=' + screen.height + ',width=' + screen.width);
+		popupWinindow.document.open();
+		popupWinindow.document.write(`
+			  <html>
+					<head>
+						<title>Print Report</title>
+						 <style>
+						    @media print{
+						        @page {size: landscape}
+						            table {width: 100%; border-collapse: collapse;}
+						            tr { height: 40px; }
+						            th, td { border: grey; text-align: center; vertical-align: middle; }
+						            tr:nth-child(even) { background-color: lightgrey; -webkit-print-color-adjust: exact; }        
+						    }				
+						 </style>
+					</head>
+					<body onload="window.print();window.close()">${innerContents}</body>
+			  </html>`);
+		popupWinindow.document.close();
 	}
 }

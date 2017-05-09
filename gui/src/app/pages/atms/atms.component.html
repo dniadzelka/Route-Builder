@@ -13,7 +13,7 @@
 				RULES
 			</button>
 
-			<button color="primary" class="btn" (click)="print()" md-raised-button>
+			<button color="primary" class="btn" (click)="print('atmsTable')" md-raised-button>
 				<i class="material-icons left">print</i> PRINT
 			</button>
 		</div>
@@ -65,3 +65,26 @@
 		</div>
 	</md-card-content>
 </md-card>
+
+<!--FOR PRINTING-->
+<div id="atmsTable">
+	<table>
+	<thead>
+	<tr>
+		<th>ATM</th>
+		<th>Address</th>
+		<th>Area</th>
+		<th>Status</th>
+		<th>Amount</th>
+		<th>Currencies</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr *ngFor="let row of atmTable">
+		<td *ngFor="let column of row | iterateObject : iterateKeys">
+			{{column}}
+		</td>
+	</tr>
+	</tbody>
+	</table>
+</div>
