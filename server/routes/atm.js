@@ -1,7 +1,11 @@
 //https://www.npmjs.com/package/lowdb
 
 const low = require('lowdb');
-const db = low('./server/db/db.json');
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('./db/db.json')
+const db = low(adapter);
+
 const express = require('express');
 const router = express.Router();
 
